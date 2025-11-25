@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-background text-foreground antialiased min-h-screen;
+  background-image: linear-gradient(145deg, rgba(17, 22, 43, 0.85), rgba(12, 16, 33, 0.95)), theme('backgroundImage.mesh-gradient');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(93, 95, 239, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(93, 95, 239, 0.6);
+}
+
+.glass-card {
+  @apply bg-card/70 border border-white/5 backdrop-blur-xl shadow-soft;
+}
+
+.gradient-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(120deg, #5d5fef, #9f7aea, #49d1ff);
+  filter: blur(18px);
+  opacity: 0.4;
+}
+
+.gradient-border > * {
+  position: relative;
+  z-index: 1;
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
